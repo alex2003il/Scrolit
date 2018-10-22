@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const bodyParser = require('body-parser');
 const os = require('os');
 const fs = require('fs');
@@ -57,12 +58,17 @@ app.post('/api/getUserData',function(req,res){
   res.send(JSON.stringify(response));
 });
 
-app.use(express.static('dist'));
+app.use(express.static('public'));
 app.get('/api/getUsername', (req, res) => res.send({
   username: os.userInfo().username
 }));
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/../../public'+'/index.html'));
+})
 
-app.listen(3000, () => console.log('Listening on port 3000!'));
+const port = process.env.PORT || 8080;
+
+app.listen(port, () => console.log('Listening on port '));
 
 

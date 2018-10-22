@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const outputDirectory = 'dist';
+const outputDirectory = 'public';
 
 module.exports = {
   entry: './src/client/index.js',
@@ -10,6 +10,7 @@ module.exports = {
     path: path.join(__dirname, outputDirectory),
     filename: 'bundle.js'
   },
+  target: "node",
   module: {
     rules: [
       {
@@ -31,7 +32,7 @@ module.exports = {
     ]
   },
   devServer: {
-    port: 8080,
+    port: 3000,
     open: true,
     historyApiFallback:true,
     proxy: {
@@ -41,8 +42,8 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin([outputDirectory]),
     new HtmlWebpackPlugin({
-      template: './public/index.html',
-      favicon: './public/favicon.ico'
+      template: './src/index.html',
+      favicon: './src/favicon.ico'
     })
   ]
 };
