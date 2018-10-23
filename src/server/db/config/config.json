@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "jrgkbuaa",
+    "password": "",
+    "database": "",
+    "host": "elmer.db.elephantsql.com",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "jrgkbuaa",
+    "password": "",
+    "database": "",
+    "host": "elmer.db.elephantsql.com",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "jrgkbuaa",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

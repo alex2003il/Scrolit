@@ -59,9 +59,13 @@ app.post('/api/getUserData',function(req,res){
 });
 
 app.use(express.static('public'));
+
 app.get('/api/getUsername', (req, res) => res.send({
   username: os.userInfo().username
 }));
+
+//db section
+require('./db/routes')(app);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'/../../public'+'/index.html'));
@@ -69,6 +73,6 @@ app.get('*', (req, res) => {
 
 const port = process.env.PORT || 8080;
 
-app.listen(port, () => console.log('Listening on port '));
+app.listen(port, () => console.log('Listening on port '+port));
 
 

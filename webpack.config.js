@@ -10,7 +10,7 @@ module.exports = {
     path: path.join(__dirname, outputDirectory),
     filename: 'bundle.js'
   },
-  target: "node",
+  target: "web",
   module: {
     rules: [
       {
@@ -36,7 +36,7 @@ module.exports = {
     open: true,
     historyApiFallback:true,
     proxy: {
-      '/api': 'http://localhost:3000'
+      '/api': 'http://localhost:8080'
     }
   },
   plugins: [
